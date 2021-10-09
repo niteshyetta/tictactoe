@@ -276,7 +276,7 @@ function myfunc_3() {
 		}else{
 			document.getElementById("player1Move").value = '1';
 		}
-
+		predict_Human_Move();
 		if(document.getElementById("humanComputer").checked == true){
 			myfunc_Auto_Human_computer("b1");
 		}
@@ -293,6 +293,7 @@ function myfunc_3() {
 		}else{
 			document.getElementById("player2Move").value = '1';
 		}
+		predict_Human_Move();
 		
 	}
 }
@@ -310,6 +311,7 @@ function myfunc_4() {
 		}else{
 			document.getElementById("player1Move").value = '2';
 		}
+		predict_Human_Move();
 		if(document.getElementById("humanComputer").checked == true){
 			myfunc_Auto_Human_computer("b2");
 		}
@@ -326,6 +328,7 @@ function myfunc_4() {
 		}else{
 			document.getElementById("player2Move").value = '2';
 		}
+		predict_Human_Move();
 	}
 }
 
@@ -341,6 +344,7 @@ function myfunc_5() {
 		}else{
 			document.getElementById("player1Move").value = '3';
 		}
+		predict_Human_Move();
 		if(document.getElementById("humanComputer").checked == true){
 			myfunc_Auto_Human_computer("b3");
 		}
@@ -357,6 +361,7 @@ function myfunc_5() {
 		}else{
 			document.getElementById("player2Move").value = '3';
 		}
+		predict_Human_Move();
 	}
 }
 
@@ -372,6 +377,7 @@ function myfunc_6() {
 		}else{
 			document.getElementById("player1Move").value = '4';
 		}
+		predict_Human_Move();
 		if(document.getElementById("humanComputer").checked == true){
 			myfunc_Auto_Human_computer("b4");
 		}
@@ -388,6 +394,7 @@ function myfunc_6() {
 		}else{
 			document.getElementById("player2Move").value = '4';
 		}
+		predict_Human_Move();
 	}
 }
 
@@ -403,6 +410,7 @@ function myfunc_7() {
 		}else{
 			document.getElementById("player1Move").value = '5';
 		}
+		predict_Human_Move();
 		if(document.getElementById("humanComputer").checked == true){
 			myfunc_Auto_Human_computer("b5");
 		}
@@ -419,6 +427,7 @@ function myfunc_7() {
 		}else{
 			document.getElementById("player2Move").value = '5';
 		}
+		predict_Human_Move();
 	}
 }
 
@@ -435,6 +444,7 @@ function myfunc_8() {
 		}else{
 			document.getElementById("player1Move").value = '6';
 		}
+		predict_Human_Move();
 		if(document.getElementById("humanComputer").checked == true){
 			myfunc_Auto_Human_computer("b6");
 		}
@@ -451,6 +461,7 @@ function myfunc_8() {
 		}else{
 			document.getElementById("player2Move").value = '6';
 		}
+		predict_Human_Move();
 	}
 }
 
@@ -466,6 +477,7 @@ function myfunc_9() {
 		}else{
 			document.getElementById("player1Move").value = '7';
 		}
+		predict_Human_Move();
 		if(document.getElementById("humanComputer").checked == true){
 			myfunc_Auto_Human_computer("b7");
 		}
@@ -482,6 +494,7 @@ function myfunc_9() {
 		}else{
 			document.getElementById("player2Move").value = '7';
 		}
+		predict_Human_Move();
 	}
 }
 
@@ -497,6 +510,7 @@ function myfunc_10() {
 		}else{
 			document.getElementById("player1Move").value = '8';
 		}
+		predict_Human_Move();
 		if(document.getElementById("humanComputer").checked == true){
 			myfunc_Auto_Human_computer("b8");
 		}
@@ -512,7 +526,7 @@ function myfunc_10() {
 		}else{
 			document.getElementById("player2Move").value = '8';
 		}
-
+		predict_Human_Move();
 	}
 }
 
@@ -528,6 +542,7 @@ function myfunc_11() {
 		}else{
 			document.getElementById("player1Move").value = '9';
 		}
+		predict_Human_Move();
 		if(document.getElementById("humanComputer").checked == true){
 			myfunc_Auto_Human_computer("b9");
 		}
@@ -544,6 +559,7 @@ function myfunc_11() {
 		}else{
 			document.getElementById("player2Move").value = '9';
 		}
+		predict_Human_Move();
 	}
 }
 function myfunc_Auto_Human_computer(ticked){
@@ -558,7 +574,7 @@ function myfunc_Auto_Human_computer(ticked){
 				player2Move += ", player2Move";
 			document.getElementById('b'+randomNumber).value = "0";
 			document.getElementById('b'+randomNumber).value = "0";
-				document.getElementById("player2Move").value = document.getElementById("player2Move").value+','+randomNumber;
+				document.getElementById("player2Move").value = document.getElementById("player2Move").value+' '+randomNumber;
 			}else{
 				document.getElementById("player2Move").value = randomNumber;
 			}
@@ -566,6 +582,20 @@ function myfunc_Auto_Human_computer(ticked){
 		}
 	}
 }
-function predict_Human_Move(player){
-
+function predict_Human_Move(){
+	var checkedCount = 0
+	document.getElementById("player1NextMove").value="";
+	for(var i=1;i<=9;i++) {
+		if(document.getElementById('b'+i).value=="" && flag == 1){
+			var player1NextMove = document.getElementById("player1NextMove").value;
+			if (player1NextMove.indexOf("player1NextMove") == -1) {
+				player1NextMove += ", player1NextMove";
+				document.getElementById("player1NextMove").value = document.getElementById("player1NextMove").value+' '+i;
+			}else{
+				document.getElementById("player1NextMove").value = i;
+			}
+		}else{
+			checkedCount++;
+		}
+	}
 }
